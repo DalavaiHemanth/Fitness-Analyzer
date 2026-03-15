@@ -10,7 +10,7 @@ python-dotenv==1.0.1
 aiofiles==23.2.1
 
 # AI/ML
-mediapipe==0.10.14
+mediapipe>=0.10.14
 opencv-python==4.9.0.80
 numpy==1.26.4
 Pillow==10.3.0
