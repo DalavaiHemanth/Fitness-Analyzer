@@ -11,5 +11,8 @@ export default defineConfig({
       '/workout': 'http://localhost:8000',
       '/analytics': 'http://localhost:8000',
     }
+  },
+  build: {
+    outDir: 'dist',
   }
 })
