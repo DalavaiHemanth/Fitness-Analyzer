@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '',  // Vite proxy handles /users, /pose, /workout, /analytics
+  baseURL: import.meta.env.VITE_API_URL || '',  // Use env var in prod, Vite proxy centrally in dev
   headers: { 'Content-Type': 'application/json' },
 })
 
