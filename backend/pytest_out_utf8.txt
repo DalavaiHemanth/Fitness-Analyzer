@@ -1,0 +1,2544 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.0.2, pluggy-1.6.0 -- D:\college sem 6\Fitness Analyzer\backend\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\college sem 6\Fitness Analyzer\backend
+plugins: anyio-4.12.1
+collecting ... collected 24 items
+
+tests/test_api.py::TestAuth::test_register_success FAILED                [  4%]
+tests/test_api.py::TestAuth::test_register_duplicate_email FAILED        [  8%]
+tests/test_api.py::TestAuth::test_login_success FAILED                   [ 12%]
+tests/test_api.py::TestAuth::test_login_wrong_password PASSED            [ 16%]
+tests/test_api.py::TestAuth::test_get_me ERROR                           [ 20%]
+tests/test_api.py::TestAuth::test_unauthorized_access PASSED             [ 25%]
+tests/test_api.py::TestNLP::test_analyze_strength ERROR                  [ 29%]
+tests/test_api.py::TestNLP::test_analyze_cardio ERROR                    [ 33%]
+tests/test_api.py::TestNLP::test_analyze_flexibility ERROR               [ 37%]
+tests/test_api.py::TestNLP::test_analyze_with_save ERROR                 [ 41%]
+tests/test_api.py::TestNLP::test_analyze_empty_text ERROR                [ 45%]
+tests/test_api.py::TestNLP::test_get_sessions ERROR                      [ 50%]
+tests/test_api.py::TestMood::test_log_mood ERROR                         [ 54%]
+tests/test_api.py::TestMood::test_invalid_mood_range ERROR               [ 58%]
+tests/test_api.py::TestMood::test_get_mood_history ERROR                 [ 62%]
+tests/test_api.py::TestAnalytics::test_fitness_score ERROR               [ 66%]
+tests/test_api.py::TestAnalytics::test_progress_summary ERROR            [ 70%]
+tests/test_api.py::TestAnalytics::test_prediction ERROR                  [ 75%]
+tests/test_api.py::TestAnalytics::test_muscle_heatmap ERROR              [ 79%]
+tests/test_api.py::TestAnalytics::test_calorie_trend ERROR               [ 83%]
+tests/test_api.py::TestNLPUnit::test_sets_reps_extraction PASSED         [ 87%]
+tests/test_api.py::TestNLPUnit::test_duration_extraction PASSED          [ 91%]
+tests/test_api.py::TestNLPUnit::test_exercise_extraction PASSED          [ 95%]
+tests/test_api.py::TestNLPUnit::test_full_analysis PASSED                [100%]
+
+=================================== ERRORS ====================================
+___________________ ERROR at setup of TestAuth.test_get_me ____________________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+_______________ ERROR at setup of TestNLP.test_analyze_strength _______________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+________________ ERROR at setup of TestNLP.test_analyze_cardio ________________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+_____________ ERROR at setup of TestNLP.test_analyze_flexibility ______________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+______________ ERROR at setup of TestNLP.test_analyze_with_save _______________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+______________ ERROR at setup of TestNLP.test_analyze_empty_text ______________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+_________________ ERROR at setup of TestNLP.test_get_sessions _________________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+__________________ ERROR at setup of TestMood.test_log_mood ___________________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+_____________ ERROR at setup of TestMood.test_invalid_mood_range ______________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+______________ ERROR at setup of TestMood.test_get_mood_history _______________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+_____________ ERROR at setup of TestAnalytics.test_fitness_score ______________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+____________ ERROR at setup of TestAnalytics.test_progress_summary ____________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+_______________ ERROR at setup of TestAnalytics.test_prediction _______________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+_____________ ERROR at setup of TestAnalytics.test_muscle_heatmap _____________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+_____________ ERROR at setup of TestAnalytics.test_calorie_trend ______________
+tests\test_api.py:31: in auth_headers
+    client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+================================== FAILURES ===================================
+_______________________ TestAuth.test_register_success ________________________
+tests\test_api.py:47: in test_register_success
+    res = client.post("/users/register", json={
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+------------------------------ Captured log call ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+___________________ TestAuth.test_register_duplicate_email ____________________
+tests\test_api.py:57: in test_register_duplicate_email
+    client.post("/users/register", json={"email": "dup@fitai.com", "username": "dup1", "password": "pass"})
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+------------------------------ Captured log call ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+_________________________ TestAuth.test_login_success _________________________
+tests\test_api.py:63: in test_login_success
+    client.post("/users/register", json={"email": "login@fitai.com", "username": "loginuser", "password": "pass123"})
+venv\Lib\site-packages\starlette\testclient.py:546: in post
+    return super().post(
+venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+venv\Lib\site-packages\starlette\testclient.py:445: in request
+    return super().request(
+venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\testclient.py:348: in handle_request
+    raise exc
+venv\Lib\site-packages\starlette\testclient.py:345: in handle_request
+    portal.call(self.app, scope, receive, send)
+venv\Lib\site-packages\anyio\from_thread.py:334: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+venv\Lib\site-packages\anyio\from_thread.py:259: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\applications.py:1160: in __call__
+    await super().__call__(scope, receive, send)
+venv\Lib\site-packages\starlette\applications.py:107: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+venv\Lib\site-packages\starlette\middleware\cors.py:87: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:716: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:736: in app
+    await route.handle(scope, receive, send)
+venv\Lib\site-packages\starlette\routing.py:290: in handle
+    await self.app(scope, receive, send)
+venv\Lib\site-packages\fastapi\routing.py:130: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+venv\Lib\site-packages\fastapi\routing.py:116: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\fastapi\routing.py:670: in app
+    raw_response = await run_endpoint_function(
+venv\Lib\site-packages\fastapi\routing.py:326: in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\starlette\concurrency.py:32: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\to_thread.py:63: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:2502: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+venv\Lib\site-packages\anyio\_backends\_asyncio.py:986: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+routers\users.py:38: in register
+    hashed_password=auth.get_password_hash(user_data.password),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+auth.py:25: in get_password_hash
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\context.py:2258: in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:779: in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:591: in _calc_checksum
+    self._stub_requires_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2254: in _stub_requires_backend
+    cls.set_backend()
+venv\Lib\site-packages\passlib\utils\handlers.py:2156: in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2163: in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:2188: in set_backend
+    cls._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2311: in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+venv\Lib\site-packages\passlib\utils\handlers.py:2224: in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:626: in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:421: in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:380: in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\utils\handlers.py:792: in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv\Lib\site-packages\passlib\handlers\bcrypt.py:655: in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+------------------------------ Captured log call ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\college sem 6\Fitness Analyzer\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+============================== warnings summary ===============================
+database.py:20
+  D:\college sem 6\Fitness Analyzer\backend\database.py:20: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    Base = declarative_base()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_api.py::TestAuth::test_register_success - ValueError: passw...
+FAILED tests/test_api.py::TestAuth::test_register_duplicate_email - ValueErro...
+FAILED tests/test_api.py::TestAuth::test_login_success - ValueError: password...
+ERROR tests/test_api.py::TestAuth::test_get_me - ValueError: password cannot ...
+ERROR tests/test_api.py::TestNLP::test_analyze_strength - ValueError: passwor...
+ERROR tests/test_api.py::TestNLP::test_analyze_cardio - ValueError: password ...
+ERROR tests/test_api.py::TestNLP::test_analyze_flexibility - ValueError: pass...
+ERROR tests/test_api.py::TestNLP::test_analyze_with_save - ValueError: passwo...
+ERROR tests/test_api.py::TestNLP::test_analyze_empty_text - ValueError: passw...
+ERROR tests/test_api.py::TestNLP::test_get_sessions - ValueError: password ca...
+ERROR tests/test_api.py::TestMood::test_log_mood - ValueError: password canno...
+ERROR tests/test_api.py::TestMood::test_invalid_mood_range - ValueError: pass...
+ERROR tests/test_api.py::TestMood::test_get_mood_history - ValueError: passwo...
+ERROR tests/test_api.py::TestAnalytics::test_fitness_score - ValueError: pass...
+ERROR tests/test_api.py::TestAnalytics::test_progress_summary - ValueError: p...
+ERROR tests/test_api.py::TestAnalytics::test_prediction - ValueError: passwor...
+ERROR tests/test_api.py::TestAnalytics::test_muscle_heatmap - ValueError: pas...
+ERROR tests/test_api.py::TestAnalytics::test_calorie_trend - ValueError: pass...
+============= 3 failed, 6 passed, 1 warning, 15 errors in 15.13s ==============

@@ -1,0 +1,82 @@
+{
+  "best_model": "ExtraTrees",
+  "test_accuracy": 0.76,
+  "models_compared": {
+    "RandomForest": {
+      "cv_mean": 0.7779,
+      "cv_std": 0.0503,
+      "test_accuracy": 0.64
+    },
+    "ExtraTrees": {
+      "cv_mean": 0.7484,
+      "cv_std": 0.0519,
+      "test_accuracy": 0.76
+    },
+    "SVM": {
+      "cv_mean": 0.6774,
+      "cv_std": 0.0653,
+      "test_accuracy": 0.72
+    }
+  },
+  "classification_report": {
+    "bicep_curl": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 3.0
+    },
+    "deadlift": {
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1-score": 0.8,
+      "support": 4.0
+    },
+    "plank": {
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1-score": 0.6,
+      "support": 5.0
+    },
+    "pushup": {
+      "precision": 0.6666666666666666,
+      "recall": 0.5,
+      "f1-score": 0.5714285714285714,
+      "support": 4.0
+    },
+    "shoulder_press": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1-score": 0.8571428571428571,
+      "support": 4.0
+    },
+    "squat": {
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1-score": 0.8,
+      "support": 5.0
+    },
+    "accuracy": 0.76,
+    "macro avg": {
+      "precision": 0.7888888888888889,
+      "recall": 0.775,
+      "f1-score": 0.7714285714285715,
+      "support": 25.0
+    },
+    "weighted avg": {
+      "precision": 0.7733333333333333,
+      "recall": 0.76,
+      "f1-score": 0.7565714285714285,
+      "support": 25.0
+    }
+  },
+  "num_samples": 124,
+  "num_classes": 6,
+  "pose_labels": [
+    "plank",
+    "deadlift",
+    "shoulder_press",
+    "squat",
+    "pushup",
+    "bicep_curl"
+  ]
+}

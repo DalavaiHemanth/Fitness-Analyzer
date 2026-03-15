@@ -1,0 +1,8 @@
+node_modules/
+venv/
+__pycache__/
+*.pyc
+.env
+datasets/pose_images/
+dist/
+.DS_Store

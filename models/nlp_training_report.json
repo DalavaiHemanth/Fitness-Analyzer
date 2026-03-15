@@ -1,0 +1,46 @@
+{
+  "cv_mean": 0.9161,
+  "cv_std": 0.0204,
+  "test_accuracy": 0.9412,
+  "classification_report": {
+    "cardio": {
+      "precision": 1.0,
+      "recall": 0.9166666666666666,
+      "f1-score": 0.9565217391304348,
+      "support": 12.0
+    },
+    "flexibility": {
+      "precision": 0.9090909090909091,
+      "recall": 0.9090909090909091,
+      "f1-score": 0.9090909090909091,
+      "support": 11.0
+    },
+    "recovery": {
+      "precision": 0.9090909090909091,
+      "recall": 0.9090909090909091,
+      "f1-score": 0.9090909090909091,
+      "support": 11.0
+    },
+    "strength": {
+      "precision": 0.9444444444444444,
+      "recall": 1.0,
+      "f1-score": 0.9714285714285714,
+      "support": 17.0
+    },
+    "accuracy": 0.9411764705882353,
+    "macro avg": {
+      "precision": 0.9406565656565657,
+      "recall": 0.9337121212121212,
+      "f1-score": 0.9365330321852061,
+      "support": 51.0
+    },
+    "weighted avg": {
+      "precision": 0.9422657952069717,
+      "recall": 0.9411764705882353,
+      "f1-score": 0.9410303251735477,
+      "support": 51.0
+    }
+  },
+  "num_samples": 337,
+  "model_type": "VotingEnsemble(LR+LinearSVC+RBF-SVC) + word+char TF-IDF"
+}
